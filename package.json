@@ -1,0 +1,32 @@
+{
+  "name": "radix",
+  "version": "1.0.0",
+  "description": "A solution to the Radix challenge",
+  "author": "Larissa Rabelo",
+  "license": "ISC",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@9.9.0",
+  "scripts": {
+    "dev": "dotenv -- turbo run dev",
+    "build": "dotenv -- turbo run build",
+    "start": "node apps/backend/dist/main",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "dependencies": {
+    "dotenv-cli": "^7.4.2"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "prettier": "^3.2.5",
+    "turbo": "^2.1.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
