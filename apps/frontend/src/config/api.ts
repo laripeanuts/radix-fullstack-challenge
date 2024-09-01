@@ -1,12 +1,12 @@
 import axios, { AxiosInstance } from 'axios';
-import { env } from '../../env';
+import { env } from "../../env";
 
 class ApiService {
   private api: AxiosInstance;
 
   constructor() {
     this.api = axios.create({
-      baseURL: `${env.VITE_API_URL}/api`,
+      baseURL: `${env.API_URL}/api`,
     });
   }
 

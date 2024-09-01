@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*", "**/.env.*local"],
-  "globalEnv": ["PORT"],
+  "globalEnv": ["PORT", "NODE_ENV", "API_URL", "PORT"],
   "tasks": {
     "dev": {
       "cache": false,
