@@ -11,6 +11,7 @@
     "react-internal.js"
   ],
   "devDependencies": {
+    "@types/eslint-config-prettier": "~6.11.3",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "@vercel/style-guide": "^5.2.0",
