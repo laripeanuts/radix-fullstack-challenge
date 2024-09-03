@@ -9,7 +9,6 @@ import { CreateSessionController } from '@/controllers/sessions/create-session.c
 import { CreateUserController } from '@/controllers/users/create-user.controller';
 import { PrismaService } from '@/prisma/prisma.service';
 
-import { IdGeneratorService } from '@/services/id-generator.service';
 import { envSchema } from '../env';
 
 @Module({
@@ -18,7 +17,7 @@ import { envSchema } from '../env';
     CreateSessionController,
     CreateEquipmentsController,
   ],
-  providers: [PrismaService, IdGeneratorService],
+  providers: [PrismaService],
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../..', 'frontend', 'dist'),
