@@ -113,5 +113,75 @@
     "id": "EQ-12517",
     "name": "Painéis de Controle",
     "description": "Painéis usados para monitorar e controlar sistemas e processos industriais."
+  },
+  {
+    "id": "EQ-12518",
+    "name": "Filtros de Óleo",
+    "description": "Dispositivos para filtrar impurezas do óleo em sistemas industriais."
+  },
+  {
+    "id": "EQ-12519",
+    "name": "Reatores Químicos",
+    "description": "Equipamentos para realizar reações químicas em processos industriais."
+  },
+  {
+    "id": "EQ-12520",
+    "name": "Caldeiras de Recuperação",
+    "description": "Dispositivos que recuperam calor de gases de escape para melhorar a eficiência energética."
+  },
+  {
+    "id": "EQ-12521",
+    "name": "Sistema de Despoeiramento",
+    "description": "Equipamentos para remover poeira e partículas do ar em processos industriais."
+  },
+  {
+    "id": "EQ-12522",
+    "name": "Bombas de Calor",
+    "description": "Dispositivos para transferir calor de um lugar para outro, usados em sistemas de climatização."
+  },
+  {
+    "id": "EQ-12523",
+    "name": "Aquecedores Elétricos",
+    "description": "Equipamentos para gerar calor elétrico para processos industriais."
+  },
+  {
+    "id": "EQ-12524",
+    "name": "Sistema de Tratamento de Efluentes",
+    "description": "Equipamentos para tratar e purificar efluentes industriais antes do descarte."
+  },
+  {
+    "id": "EQ-12525",
+    "name": "Geradores de Emergência",
+    "description": "Equipamentos para fornecer energia de backup em caso de falha na fonte principal."
+  },
+  {
+    "id": "EQ-12526",
+    "name": "Sistemas de Refrigeração por Absorção",
+    "description": "Equipamentos que utilizam absorção para resfriar ambientes ou processos."
+  },
+  {
+    "id": "EQ-12527",
+    "name": "Compressores de Refrigerante",
+    "description": "Equipamentos para comprimir refrigerantes em sistemas de climatização e refrigeração."
+  },
+  {
+    "id": "EQ-12528",
+    "name": "Controladores de Nível",
+    "description": "Dispositivos para monitorar e controlar o nível de líquidos em tanques e reservatórios."
+  },
+  {
+    "id": "EQ-12529",
+    "name": "Secadores Industriais",
+    "description": "Equipamentos para remover a umidade de materiais e produtos em processos industriais."
+  },
+  {
+    "id": "EQ-12530",
+    "name": "Unidades de Filtragem de Água",
+    "description": "Equipamentos para filtrar impurezas da água em sistemas industriais."
+  },
+  {
+    "id": "EQ-12531",
+    "name": "Equipamentos de Medição de Vazão",
+    "description": "Dispositivos para medir a vazão de líquidos e gases em processos industriais."
   }
 ]
