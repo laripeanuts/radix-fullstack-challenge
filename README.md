@@ -1,5 +1,15 @@
 # **Radix Fullstack Challenge**
 
+## About the project
+
+### Backend
+
+The backend was developed using Node.js typed with NestJS and Prisma. The database used was PostgreSQL.
+
+### Frontend
+
+
+
 ## How to run the project
 
 ### Local

@@ -8,4 +8,12 @@ export default {
       project: true,
     },
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.ts', '.tsx'],
+      },
+    },
+  },
 };

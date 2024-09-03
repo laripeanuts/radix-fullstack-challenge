@@ -1,0 +1,117 @@
+[
+  {
+    "id": "EQ-12495",
+    "name": "Inversores de Frequência",
+    "description": "Dispositivo utilizado para controlar a velocidade de motores elétricos."
+  },
+  {
+    "id": "EQ-12496",
+    "name": "Compressores de Ar",
+    "description": "Equipamento para compressão de ar, essencial em processos industriais."
+  },
+  {
+    "id": "EQ-12497",
+    "name": "Geradores de Energia",
+    "description": "Máquinas que geram eletricidade para suprir demandas energéticas."
+  },
+  {
+    "id": "EQ-12498",
+    "name": "Bombas Centrífugas",
+    "description": "Usadas para movimentar líquidos em sistemas de tubulação."
+  },
+  {
+    "id": "EQ-12499",
+    "name": "Transformadores Elétricos",
+    "description": "Equipamentos que alteram os níveis de tensão da eletricidade."
+  },
+  {
+    "id": "EQ-12500",
+    "name": "Caldeiras de Alta Pressão",
+    "description": "Dispositivos para gerar vapor sob alta pressão para processos industriais."
+  },
+  {
+    "id": "EQ-12501",
+    "name": "Controladores Lógicos Programáveis",
+    "description": "Sistemas de controle para automação de processos industriais."
+  },
+  {
+    "id": "EQ-12502",
+    "name": "Sensores de Temperatura",
+    "description": "Dispositivos para monitorar a temperatura em sistemas e processos."
+  },
+  {
+    "id": "EQ-12503",
+    "name": "Chillers",
+    "description": "Equipamentos para resfriamento de fluidos em processos industriais."
+  },
+  {
+    "id": "EQ-12504",
+    "name": "Separadores de Água e Óleo",
+    "description": "Dispositivos para separar água e óleo em sistemas de processos."
+  },
+  {
+    "id": "EQ-12505",
+    "name": "Válvulas de Controle",
+    "description": "Equipamentos usados para regular o fluxo de líquidos e gases."
+  },
+  {
+    "id": "EQ-12506",
+    "name": "Turbinas a Gás",
+    "description": "Máquinas que convertem energia térmica em energia mecânica."
+  },
+  {
+    "id": "EQ-12507",
+    "name": "Unidades de Tratamento de Água",
+    "description": "Equipamentos para purificação e tratamento de água para consumo e processos."
+  },
+  {
+    "id": "EQ-12508",
+    "name": "Mediadores de Fluxo",
+    "description": "Dispositivos para medir o fluxo de líquidos e gases em sistemas."
+  },
+  {
+    "id": "EQ-12509",
+    "name": "Sistemas de Ventilação",
+    "description": "Equipamentos para garantir a circulação de ar em ambientes industriais."
+  },
+  {
+    "id": "EQ-12510",
+    "name": "Tanques de Armazenamento",
+    "description": "Reservatórios para armazenar líquidos ou gases em grandes quantidades."
+  },
+  {
+    "id": "EQ-12511",
+    "name": "Equipamentos de Medição de Pressão",
+    "description": "Dispositivos para medir a pressão de gases e líquidos."
+  },
+  {
+    "id": "EQ-12512",
+    "name": "Sistema de Monitoramento de Emissões",
+    "description": "Equipamentos para monitorar as emissões de poluentes em processos industriais."
+  },
+  {
+    "id": "EQ-12513",
+    "name": "Sistema de Filtragem de Ar",
+    "description": "Equipamentos para filtrar partículas e contaminantes do ar."
+  },
+  {
+    "id": "EQ-12514",
+    "name": "Sistema de Armazenamento de Energia",
+    "description": "Equipamentos para armazenar energia para uso futuro, como baterias e sistemas de armazenamento."
+  },
+  {
+    "id": "EQ-12515",
+    "name": "Sistema de Lubrificação Automática",
+    "description": "Dispositivos para fornecer lubrificação contínua a equipamentos e maquinários."
+  },
+  {
+    "id": "EQ-12516",
+    "name": "Unidades de Refrigeração Industrial",
+    "description": "Equipamentos para resfriamento e controle de temperatura em processos industriais."
+  },
+  {
+    "id": "EQ-12517",
+    "name": "Painéis de Controle",
+    "description": "Painéis usados para monitorar e controlar sistemas e processos industriais."
+  }
+]
