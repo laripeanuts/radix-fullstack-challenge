@@ -6,7 +6,7 @@ class ApiService {
 
   constructor() {
     this.api = axios.create({
-      baseURL: `${env.API_URL}/api`,
+      baseURL: `${env.BASE_BACKEND_URL}/api`,
     });
   }
 

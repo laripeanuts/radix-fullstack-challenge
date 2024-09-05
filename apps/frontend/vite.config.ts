@@ -12,10 +12,10 @@ export default defineConfig({
     'process.env': process.env,
   },
   server: {
-    port: Number(process.env.PORT),
+    port: Number(process.env.FRONTEND_PORT) || 3001,
     proxy: {
       '/api': {
-        target: process.env.API_URL || 'http://localhost:3000',
+        target: process.env.BASE_BACKEND_URL || 'http://localhost:3000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

@@ -26,7 +26,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <h3>{isLoading ? 'Loading...' : data?.data}</h3>
-      <h4>{env.API_URL}</h4>
+      <h4>{env.BASE_BACKEND_URL}</h4>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}

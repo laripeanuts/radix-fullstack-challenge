@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*", "**/.env.*local"],
-  "globalEnv": ["PORT", "NODE_ENV", "API_URL", "PORT", "DATABASE_URL", "JWT_PRIVATE_KEY", "JWT_PUBLIC_KEY"],
+  "globalEnv": ["FRONTEND_PORT", "BACKEND_PORT", "NODE_ENV", "BASE_BACKEND_URL", "BASE_FRONTEND_URL", "DATABASE_URL", "JWT_PRIVATE_KEY", "JWT_PUBLIC_KEY"],
   "tasks": {
     "dev": {
       "cache": false,
