@@ -8,7 +8,7 @@ The backend was developed using Node.js typed with NestJS and Prisma. The databa
 
 ### Frontend
 
-
+Was developed using React with TypeScript using Vite as a bundler.
 
 ## How to run the project
 
@@ -32,13 +32,3 @@ pnpm dev
 
 - Frontend: [http://localhost:3001](http://localhost:3001)
 - Backend: [http://localhost:3000](http://localhost:3000)
-
-### Docker
-
-1. Build the image in detached mode on the root folder:
-
-```bash
-docker compose up -d
-```
-
-> **Obs:** The frontend was added to the api server using a proxy, you can access the frontend in the same server [http://localhost:3000](http://localhost:3000) and the api at [http://localhost:3000/api](http://localhost:3000/api).
