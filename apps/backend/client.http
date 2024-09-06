@@ -1,5 +1,6 @@
 @baseUrl = http://localhost:3000/api
 @accessToken = {{createSession.response.body.access_token}}
+@equipmentId = {{creatEquipment.response.body.id}}
 
 # @name createUser
 POST {{baseUrl}}/users
@@ -23,12 +24,31 @@ Content-Type: application/json
 }
 
 ###
+
 # @name creatEquipment
 POST {{baseUrl}}/equipments
 Content-Type: application/json
 Authorization: Bearer {{accessToken}}
 
 {
-  "name": "Calculadora",
-  "description": "Calculadora científica"
+  "name": "Excaator Sensor",
+  "description": "Heavy duty excavator"
+}
+
+###
+
+# @name getEquipments
+GET {{baseUrl}}/equipments
+Authorization: Bearer {{accessToken}}
+
+###
+
+# @name createMeasurement
+POST {{baseUrl}}/measurements
+Content-Type: application/json
+
+{
+  "timestamp": "2021-01-01T00:00:00Z",
+  "value": 100,
+  "equipmentId": "{{equipmentId}}"
 }

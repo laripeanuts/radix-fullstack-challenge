@@ -3,5 +3,16 @@
     {
       "mode": "auto"
     }
+  ],
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "radix",
+      "database": "postgres_db",
+      "username": "postgres_user"
+    }
   ]
 }

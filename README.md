@@ -1,5 +1,14 @@
 # **Radix Fullstack Challenge**
 
+- [**Radix Fullstack Challenge**](#radix-fullstack-challenge)
+  - [About the project](#about-the-project)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+  - [How to run the project](#how-to-run-the-project)
+    - [Prerequisites](#prerequisites)
+    - [Local](#local)
+  - [Try out!](#try-out)
+
 ## About the project
 
 ### Backend
@@ -16,7 +25,7 @@ Was developed using React with TypeScript using Vite as a bundler.
 
 - [Node.js](https://nodejs.org/en/)
 - [pnpm](https://pnpm.io/)
-- [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
 
 ### Local
 
@@ -30,18 +39,12 @@ The project was developed using [pnpm](https://pnpm.io/), so it is recommended t
 pnpm install
 ```
 
-3. Run the following command to start the project:
-
-```bash
-pnpm dev
-```
-
 3. Setup the database:
 
-- Run the following command to create the database:
+- Initialize db in a docker compose container:
 
 ```bash
-pnpm --filter backend run db:generate
+docker-compose up -d
 ```
 
 - Run the following command to run the migrations:
@@ -60,3 +63,9 @@ pnpm --filter backend run db:seed
 
 - Frontend: [http://localhost:3001](http://localhost:3001)
 - Backend: [http://localhost:3000](http://localhost:3000)
+
+## Try out! 
+
+- **Backend:**
+
+You can try the api by accessing the `client.http` file in the `backend` root folder, and clicking on the `Send Request` button, but you need to have the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension installed in your VSCode.
