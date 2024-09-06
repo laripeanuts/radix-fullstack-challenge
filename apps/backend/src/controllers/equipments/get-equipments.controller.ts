@@ -5,7 +5,7 @@ import { PrismaService } from '@/prisma/prisma.service';
 
 @Controller('/equipments')
 @UseGuards(JwtAuthGuard)
-export class CreateEquipmentController {
+export class GetEquipmentsController {
   constructor(private prisma: PrismaService) {}
 
   @Get()

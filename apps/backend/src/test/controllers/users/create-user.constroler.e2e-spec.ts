@@ -4,8 +4,9 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { AppModule } from '@/app.module';
 import { PrismaService } from '@/prisma/prisma.service';
+import request from 'supertest';
 
-describe('Create User Endpoint (e2e)', () => {
+describe('User Endpoint (e2e)', () => {
   let app: INestApplication;
   let prisma: PrismaService;
 
@@ -53,27 +54,27 @@ describe('Create User Endpoint (e2e)', () => {
     expect(userOnDatabase).toBeTruthy();
   });
 
-  // it('/users (POST) - should return conflict if user already exists', async () => {
-  //   await request(app.getHttpServer())
-  //     .post('/users')
-  //     .send({
-  //       name: 'Jane Doe',
-  //       email: 'jane.doe@example.com',
-  //       password: 'password123',
-  //     })
-  //     .expect(201);
+  it('/users (POST) - should return conflict if user already exists', async () => {
+    await request(app.getHttpServer())
+      .post('/users')
+      .send({
+        name: 'Jane Doe',
+        email: 'jane.doe@example.com',
+        password: 'password123',
+      })
+      .expect(201);
 
-  //   const response = await request(app.getHttpServer())
-  //     .post('/users')
-  //     .send({
-  //       name: 'Jane Doe',
-  //       email: 'jane.doe@example.com',
-  //       password: 'password123',
-  //     })
-  //     .expect(409);
+    const response = await request(app.getHttpServer())
+      .post('/users')
+      .send({
+        name: 'Jane Doe',
+        email: 'jane.doe@example.com',
+        password: 'password123',
+      })
+      .expect(409);
 
-  //   expect(response.body.message).toBe(
-  //     'User with same email address already exists',
-  //   );
-  // });
+    expect(response.body.message).toBe(
+      'User with same email address already exists',
+    );
+  });
 });

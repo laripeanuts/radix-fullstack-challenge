@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  HttpCode,
-  Post,
-  UseGuards,
-  UsePipes,
-} from '@nestjs/common';
+import { Body, Controller, HttpCode, Post, UseGuards } from '@nestjs/common';
 import { z } from 'zod';
 
 import { CurrentUser } from '@/auth/current-user.decorator';
@@ -23,16 +16,17 @@ type CreateEquipmentsBody = z.infer<typeof createEquipmentBodySchema>;
 
 @Controller('/equipments')
 @UseGuards(JwtAuthGuard)
-export class CreateEquipmentsController {
+export class CreateEquipmentController {
   constructor(private prisma: PrismaService) {}
 
   @Post()
   @HttpCode(201)
-  @UsePipes(new ZodValidationPipe(createEquipmentBodySchema))
   async handle(
-    @Body() body: CreateEquipmentsBody,
+    @Body(new ZodValidationPipe(createEquipmentBodySchema))
+    body: CreateEquipmentsBody,
     @CurrentUser() user: UserPayloadSchema,
   ) {
+    console.log("🚀 ~ CreateEquipmentsController ~ body:", body)
     const { sub } = user;
     const { name, description } = body;
 
