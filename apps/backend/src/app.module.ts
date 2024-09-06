@@ -4,12 +4,14 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
 import { AuthModule } from '@/auth/auth.module';
+import { EnvModule } from '@/config/env/env.module';
 import { CreateEquipmentsController } from '@/controllers/equipments/create-equipment.controller';
 import { CreateSessionController } from '@/controllers/sessions/create-session.controller';
 import { CreateUserController } from '@/controllers/users/create-user.controller';
 import { PrismaService } from '@/prisma/prisma.service';
 
-import { envSchema } from '../env';
+import { envSchema } from '@/config/env/env';
+import { EnvService } from '@/config/env/env.service';
 
 @Module({
   controllers: [
@@ -17,7 +19,7 @@ import { envSchema } from '../env';
     CreateSessionController,
     CreateEquipmentsController,
   ],
-  providers: [PrismaService],
+  providers: [PrismaService, EnvService],
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../..', 'frontend', 'dist'),
@@ -28,6 +30,7 @@ import { envSchema } from '../env';
       isGlobal: true,
     }),
     AuthModule,
+    EnvModule,
   ],
 })
 export class AppModule {}

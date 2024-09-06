@@ -1,22 +1,27 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "NestJS",
-  "extends": "./base.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
+    "module": "commonjs",
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": false,
-    "incremental": true,
-    "module": "commonjs",
-    "moduleResolution": "Node10",
-    "noFallthroughCasesInSwitch": false,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2022",
     "sourceMap": true,
-    "strictBindCallApply": false,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strict": true,
     "strictNullChecks": true,
-    "strict": true
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["vitest/globals"]
   }
 }

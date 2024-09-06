@@ -2,13 +2,19 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest --passWithNoTests",
+    "test:open-e2e": "cypress open --e2e --browser chrome",
+    "test:open-unit": "cypress open --component --browser chrome",
+    "test:e2e": "start-server-and-test dev http-get://localhost:3001 cy:open-e2e",
+    "test:run-e2e": "cypress run --e2e",
+    "test:run-unit": "cypress run --component"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.52.2",
@@ -23,17 +29,24 @@
     "@eslint/js": "^9.9.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
     "@types/eslint": "~9.6.1",
     "@types/eslint__js": "~8.42.3",
+    "@types/jest": "^29.5.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "cypress": "^13.14.2",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "happy-dom": "^15.7.3",
+    "start-server-and-test": "^2.0.5",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^5.4.1",
+    "vitest": "^2.0.5"
   }
 }

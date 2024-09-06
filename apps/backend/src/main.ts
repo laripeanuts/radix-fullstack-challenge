@@ -1,17 +1,18 @@
 /* eslint-disable no-console */
 
 import { AppModule } from '@/app.module';
-import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 
-import { Env } from '../env';
+import { EnvService } from './config/env/env.service';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, {
+    logger: ['error', 'warn', 'log'],
+  });
 
-  const configService = app.get<ConfigService<Env, true>>(ConfigService);
-  const port = configService.get('BACKEND_PORT', { infer: true });
-  const url = configService.get('BASE_BACKEND_URL', { infer: true });
+  const configService = app.get(EnvService);
+  const port = configService.get('BACKEND_PORT');
+  const url = configService.get('BASE_BACKEND_URL');
 
   app.setGlobalPrefix('api');
   app.enableCors();

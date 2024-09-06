@@ -43,8 +43,13 @@ async function createRootUser(): Promise<{ id: string }> {
 }
 
 async function seedEquipments(userId: string) {
-  const filePath = path.join(__dirname, 'seed', 'equipments.json');
+  const filePath = path.join(__dirname, 'data', 'equipments.json');
   const rawData = fs.readFileSync(filePath, 'utf-8');
+
+  if (!rawData) {
+    throw new Error('Equipments data not found.');
+  }
+
   const equipmentData = JSON.parse(rawData);
   const equipmentsIds: string[] = [];
 
