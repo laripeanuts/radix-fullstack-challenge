@@ -1,6 +1,6 @@
 @baseUrl = http://localhost:3333/api
-@accessToken = {{createSession.response.body.access_token}}
-@equipmentId = {{creatEquipment.response.body.id}}
+@token = {{createSession.response.body.token}}
+@equipmentId = {{creatEquipment.response.body.equipment.id}}
 
 # @name createUser
 POST {{baseUrl}}/users
@@ -8,18 +8,18 @@ Content-Type: application/json
 
 {
   "name": "Example",
-  "email": "exasam@example.com",
+  "email": "example123@example.com",
   "password": "password"
 }
 
 ###
 
 # @name createSession
-POST {{baseUrl}}/sessions
+POST {{baseUrl}}/users/session
 Content-Type: application/json
 
 {
-  "email": "example@example.com",
+  "email": "example123@example.com",
   "password": "password"
 }
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 # @name creatEquipment
 POST {{baseUrl}}/equipments
 Content-Type: application/json
-Authorization: Bearer {{accessToken}}
+Authorization: Bearer {{token}}
 
 {
   "name": "Excaator Sensor",
@@ -39,23 +39,24 @@ Authorization: Bearer {{accessToken}}
 
 # @name getEquipments
 GET {{baseUrl}}/equipments
-Authorization: Bearer {{accessToken}}
+Authorization: Bearer {{token}}
 
 ###
 
 # @name createMeasurement
-POST {{baseUrl}}/measurements
+POST {{baseUrl}}/measurements/{{equipmentId}}
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
   "timestamp": "2025-09-06T00:00:00.000Z",
-  "value": 80,
-  "equipmentId": "{{equipmentId}}"
+  "value": 80
 }
 
 ###
 
 # @name getMeasurementsByEquipmentId
-GET {{baseUrl}}/measurements/{{equipmentId}}?timeFrame=1m
+GET {{baseUrl}}/measurements/{{equipmentId}}/average
+Authorization: Bearer {{token}}
 
 ###

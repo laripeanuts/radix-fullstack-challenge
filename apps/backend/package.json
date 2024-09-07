@@ -10,7 +10,7 @@
     "start": "nest start",
     "dev": "nest start --watch --preserveWatchOutput",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "test": "vitest run --passWithNoTests",
@@ -44,6 +44,7 @@
     "zod-validation-error": "^3.3.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.0.0",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.4.1",

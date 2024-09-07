@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
+import { UniqueEntityID } from '@/core/entities/unique-id-entity';
 import { UsersPrismaMapper } from '@/database/prisma/mappers/users-prisma-mappers';
 import { PrismaService } from '@/database/prisma/prisma.service';
 import { User } from '@/domain/entities/user-entity';
@@ -23,6 +24,20 @@ export class UsersPrismaRepository implements UsersRepository {
     const user = await this.prisma.user.findUnique({
       where: {
         email,
+      },
+    });
+
+    if (!user) {
+      return null;
+    }
+
+    return UsersPrismaMapper.toDomain(user);
+  }
+
+  async findById(id: UniqueEntityID): Promise<User | null> {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id: id.toString(),
       },
     });
 

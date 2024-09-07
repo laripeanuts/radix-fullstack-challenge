@@ -9,8 +9,9 @@ import {
 } from '@nestjs/common';
 import { z } from 'zod';
 
+import { Public } from '@/config/auth/make-route-public.decorator';
 import { UserAlreadyCreatedError } from '@/domain/errors/user-already-created-error';
-import { UserCreateUseCase } from '@/domain/use-cases/users-create-use-case';
+import { UserCreateUseCase } from '@/domain/use-cases/user-create-use-case';
 import { ZodValidationPipe } from '@/http/pipes/zod-validation-pipe';
 import { UserPresenter } from '../presenters/user-presenter';
 
@@ -23,6 +24,7 @@ const createUserBodySchema = z.object({
 type CreateUserBody = z.infer<typeof createUserBodySchema>;
 
 @Controller('/users')
+@Public()
 export class UserCreateController {
   constructor(private userCreateUseCase: UserCreateUseCase) {}
 

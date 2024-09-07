@@ -31,13 +31,14 @@ This repository is organized following the Clean Architecture principles, with t
 
 #### Features
 
-- User:
+- [x] User:
   - POST
-- Authentication with JWT
-- Equipment (authenticated users only)
+- [x] User/Session:
+  - POST Authentication with JWT
+- [x] Equipment:
   - POST
   - GET all
-- Measurement
+- [x] Measurement
   - POST
   - POST via CSV file
   - GET by equipment value average in a specific period

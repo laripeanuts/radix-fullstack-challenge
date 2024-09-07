@@ -4,19 +4,21 @@ import { hash } from 'bcryptjs';
 import request from 'supertest';
 
 import { AppModule } from '@/app.module';
-import { PrismaService } from '@/database/prisma/prisma.service';
+import { DatabaseModule } from '@/database/database.module';
+import { UserFactory } from '../factories/prisma/users-factories';
 
 describe('Session Endpoint (e2e)', () => {
   let app: INestApplication;
-  let prisma: PrismaService;
+  let userFactory: UserFactory;
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [AppModule, DatabaseModule],
+      providers: [UserFactory],
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    prisma = moduleFixture.get(PrismaService);
+    userFactory = moduleFixture.get(UserFactory);
 
     await app.init();
   });
@@ -25,37 +27,34 @@ describe('Session Endpoint (e2e)', () => {
     await app.close();
   });
 
-  it('/sessions (POST) - should create a new session', async () => {
-    await prisma.user.create({
-      data: {
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        password: await hash('password123', 8),
-      },
+  it('/users/session (POST) - should create a new session', async () => {
+    await userFactory.makePrismaUser({
+      email: 'johndoe@example.com',
+      password: await hash('123456', 8),
     });
 
     const response = await request(app.getHttpServer())
-      .post('/sessions')
+      .post('/users/session')
       .send({
-        email: 'john.doe@example.com',
-        password: 'password123',
+        email: 'johndoe@example.com',
+        password: '123456',
       })
       .expect(201);
 
     expect(response.body).toEqual({
-      access_token: expect.any(String),
+      token: expect.any(String),
     });
   });
 
-  it('/sessions (POST) - should return unauthorized if credentials are invalid', async () => {
+  it('/users/session (POST) - should return unauthorized if credentials are invalid', async () => {
     const response = await request(app.getHttpServer())
-      .post('/sessions')
+      .post('/users/session')
       .send({
         email: 'invalid@example.com',
         password: 'invalidpassword',
       })
       .expect(401);
 
-    expect(response.body.message).toBe('Invalid email or password');
+    expect(response.body.message).toBe('User invalid credentials');
   });
 });

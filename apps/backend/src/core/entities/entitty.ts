@@ -1,7 +1,7 @@
 import { UniqueEntityID } from './unique-id-entity';
 
 export abstract class Entity<Props> {
-  private _id: UniqueEntityID;
+  private _id: UniqueEntityID | string;
   protected props: Props;
 
   get id() {
