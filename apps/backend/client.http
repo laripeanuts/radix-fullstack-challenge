@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3000/api
+@baseUrl = http://localhost:3333/api
 @accessToken = {{createSession.response.body.access_token}}
 @equipmentId = {{creatEquipment.response.body.id}}
 
@@ -48,7 +48,14 @@ POST {{baseUrl}}/measurements
 Content-Type: application/json
 
 {
-  "timestamp": "2021-01-01T00:00:00Z",
-  "value": 100,
+  "timestamp": "2025-09-06T00:00:00.000Z",
+  "value": 80,
   "equipmentId": "{{equipmentId}}"
 }
+
+###
+
+# @name getMeasurementsByEquipmentId
+GET {{baseUrl}}/measurements/{{equipmentId}}?timeFrame=1m
+
+###

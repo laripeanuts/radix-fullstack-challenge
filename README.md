@@ -6,7 +6,7 @@
     - [Frontend](#frontend)
   - [How to run the project](#how-to-run-the-project)
     - [Prerequisites](#prerequisites)
-    - [Local](#local)
+    - [Steps](#steps)
   - [Try out!](#try-out)
 
 ## About the project
@@ -14,6 +14,18 @@
 ### Backend
 
 The backend was developed using Node.js typed with NestJS and Prisma. The database used was PostgreSQL.
+
+- **Features**:
+  - User:
+    - POST
+  - Authentication with JWT
+  - Equipment (authenticated users only)
+    - POST
+    - GET all
+  - Measurement
+    - POST
+    - POST via CSV file
+    - GET by equipment value average in a specific period
 
 ### Frontend
 
@@ -27,7 +39,7 @@ Was developed using React with TypeScript using Vite as a bundler.
 - [pnpm](https://pnpm.io/)
 - [Docker](https://www.docker.com/)
 
-### Local
+### Steps
 
 The project was developed using [pnpm](https://pnpm.io/), so it is recommended to use it to run the project. But your preferred package manager can be used as well.
 
@@ -59,12 +71,18 @@ pnpm --filter backend run db:migrate:dev
 pnpm --filter backend run db:seed
 ```
 
-4. Access the project at:
+4. Run the following command to start the project:
+
+```bash
+pnpm dev
+```
+
+To access the project at:
 
 - Frontend: [http://localhost:3001](http://localhost:3001)
 - Backend: [http://localhost:3000](http://localhost:3000)
 
-## Try out! 
+## Try out!
 
 - **Backend:**
   - You can try the api by accessing the `client.http` file in the `backend` root folder, and clicking on the `Send Request` button, but you need to have the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension installed in your VSCode.

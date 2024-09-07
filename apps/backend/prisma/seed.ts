@@ -43,7 +43,7 @@ async function createRootUser(): Promise<{ id: string }> {
 }
 
 async function seedEquipments(userId: string) {
-  const filePath = path.join(__dirname, 'data', 'equipments.json');
+  const filePath = path.join(__dirname, 'seed-data', 'equipments.json');
   const rawData = fs.readFileSync(filePath, 'utf-8');
 
   if (!rawData) {
@@ -70,6 +70,8 @@ async function seedEquipments(userId: string) {
 
       equipmentsIds.push(equip.id);
     }
+
+    equipmentsIds.push(equipment.id);
   }
 
   console.log('Equipments created successfully.');
@@ -78,9 +80,17 @@ async function seedEquipments(userId: string) {
 }
 
 async function seedMeasurements(equipmentIds: string[]) {
-  const measurements = generateMeasurements(1000, equipmentIds);
+  const measurements = generateMeasurements(3, equipmentIds);
 
   for (const measurement of measurements) {
+    const equipmentExists = await prisma.equipment.findUnique({
+      where: { id: measurement.equipmentId },
+    });
+
+    if (!equipmentExists) {
+      continue;
+    }
+
     await prisma.measurement.create({
       data: {
         equipmentId: measurement.equipmentId,
@@ -93,33 +103,32 @@ async function seedMeasurements(equipmentIds: string[]) {
   console.log('Measurements created successfully.');
 }
 
-const getRandomDate = (start: Date, end: Date): Date => {
-  return new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime()),
-  );
-};
-
 const getRandomValue = (): number => {
-  return parseFloat((Math.random() * 100).toFixed(2));
+  return parseFloat((Math.random() * 1000).toFixed(2));
 };
 
 const generateMeasurements = (
-  numMeasurements: number,
+  numMeasurementsPerEquipment: number,
   equipmentIds: string[],
 ): { equipmentId: string; timestamp: string; value: number }[] => {
   const measurements: Measurement[] = [];
   const startDate = new Date();
-  startDate.setMonth(startDate.getMonth() - 3); // 3 meses atrás
-  const endDate = new Date(); // Hoje
+  startDate.setMonth(startDate.getMonth() - 1); // One month ago
+  const quantityOfDays = 35;
 
-  for (let i = 0; i < numMeasurements; i++) {
-    const measurement: Measurement = {
-      equipmentId:
-        equipmentIds[Math.floor(Math.random() * equipmentIds.length)] ?? '',
-      timestamp: getRandomDate(startDate, endDate).toISOString(),
-      value: getRandomValue(),
-    };
-    measurements.push(measurement);
+  for (const equipmentId of equipmentIds) {
+    for (let i = 0; i < numMeasurementsPerEquipment; i++) {
+      for (let j = 0; j < quantityOfDays; j++) {
+        const measurement: Measurement = {
+          equipmentId,
+          timestamp: new Date(
+            startDate.getTime() + j * 24 * 60 * 60 * getRandomValue(),
+          ).toISOString(),
+          value: getRandomValue(),
+        };
+        measurements.push(measurement);
+      }
+    }
   }
 
   return measurements;

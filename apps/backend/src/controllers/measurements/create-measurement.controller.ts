@@ -10,7 +10,7 @@ const createMeasurementBodySchema = z.object({
   timestamp: z.string().optional(),
 });
 
-type CreateEquipmentsBody = z.infer<typeof createMeasurementBodySchema>;
+type CreateMeasurementBodySchema = z.infer<typeof createMeasurementBodySchema>;
 
 @Controller('/measurements')
 export class CreateMeasurementController {
@@ -19,7 +19,7 @@ export class CreateMeasurementController {
   @Post()
   @HttpCode(201)
   @UsePipes(new ZodValidationPipe(createMeasurementBodySchema))
-  async handle(@Body() body: CreateEquipmentsBody) {
+  async handle(@Body() body: CreateMeasurementBodySchema) {
     const { timestamp, value, equipmentId } = body;
 
     return await this.prisma.measurement.create({

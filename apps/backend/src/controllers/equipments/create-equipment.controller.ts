@@ -26,7 +26,6 @@ export class CreateEquipmentController {
     body: CreateEquipmentsBody,
     @CurrentUser() user: UserPayloadSchema,
   ) {
-    console.log("🚀 ~ CreateEquipmentsController ~ body:", body)
     const { sub } = user;
     const { name, description } = body;
 

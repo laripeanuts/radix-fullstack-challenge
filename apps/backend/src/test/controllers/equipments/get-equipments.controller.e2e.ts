@@ -4,7 +4,7 @@ import { INestApplication } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 import { hash } from 'bcryptjs';
-import * as request from 'supertest';
+import request from 'supertest';
 
 describe('Get Equipments Endpoint (e2e)', () => {
   let app: INestApplication;

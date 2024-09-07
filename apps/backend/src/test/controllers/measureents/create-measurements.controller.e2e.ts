@@ -3,7 +3,7 @@ import { PrismaService } from '@/prisma/prisma.service';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { hash } from 'bcryptjs';
-import * as request from 'supertest';
+import request from 'supertest';
 
 describe('Measurements Endpoint (e2e)', () => {
   let app: INestApplication;
