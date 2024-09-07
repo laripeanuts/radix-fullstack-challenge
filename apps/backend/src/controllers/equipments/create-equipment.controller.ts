@@ -1,11 +1,11 @@
 import { Body, Controller, HttpCode, Post, UseGuards } from '@nestjs/common';
 import { z } from 'zod';
 
-import { CurrentUser } from '@/auth/current-user.decorator';
-import { JwtAuthGuard } from '@/auth/jwt-auth.guard';
-import type { UserPayloadSchema } from '@/auth/jwt.strategy';
-import { ZodValidationPipe } from '@/pipes/zod-validation-pipe';
-import { PrismaService } from '@/prisma/prisma.service';
+import { CurrentUser } from '@/config/auth/current-user.decorator';
+import { JwtAuthGuard } from '@/config/auth/jwt-auth.guard';
+import type { UserPayloadSchema } from '@/config/auth/jwt.strategy';
+import { PrismaService } from '@/database/prisma/prisma.service';
+import { ZodValidationPipe } from '@/http/pipes/zod-validation-pipe';
 
 const createEquipmentBodySchema = z.object({
   name: z.string(),

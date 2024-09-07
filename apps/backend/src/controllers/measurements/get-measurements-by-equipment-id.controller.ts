@@ -2,8 +2,8 @@ import { Controller, Get, Param, Query } from '@nestjs/common';
 import dayjs from 'dayjs';
 import { z } from 'zod';
 
-import { ZodValidationPipe } from '@/pipes/zod-validation-pipe';
-import { PrismaService } from '@/prisma/prisma.service';
+import { PrismaService } from '@/database/prisma/prisma.service';
+import { ZodValidationPipe } from '@/http/pipes/zod-validation-pipe';
 
 const timeFrames = ['1d', '2d', '1w', '1m'] as const;
 

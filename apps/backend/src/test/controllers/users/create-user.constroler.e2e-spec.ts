@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { AppModule } from '@/app.module';
-import { PrismaService } from '@/prisma/prisma.service';
+import { PrismaService } from '@/database/prisma/prisma.service';
 import request from 'supertest';
 
 describe('User Endpoint (e2e)', () => {

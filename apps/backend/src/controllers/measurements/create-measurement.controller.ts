@@ -1,8 +1,8 @@
 import { Body, Controller, HttpCode, Post, UsePipes } from '@nestjs/common';
 import { z } from 'zod';
 
-import { ZodValidationPipe } from '@/pipes/zod-validation-pipe';
-import { PrismaService } from '@/prisma/prisma.service';
+import { PrismaService } from '@/database/prisma/prisma.service';
+import { ZodValidationPipe } from '@/http/pipes/zod-validation-pipe';
 
 const createMeasurementBodySchema = z.object({
   equipmentId: z.string(),

@@ -4,7 +4,7 @@ import { hash } from 'bcryptjs';
 import request from 'supertest';
 
 import { AppModule } from '@/app.module';
-import { PrismaService } from '@/prisma/prisma.service';
+import { PrismaService } from '@/database/prisma/prisma.service';
 
 describe('Session Endpoint (e2e)', () => {
   let app: INestApplication;
