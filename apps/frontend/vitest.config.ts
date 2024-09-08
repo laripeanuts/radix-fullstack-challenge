@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   test: {
-    setupFiles: ['./src/tests/setup.ts'],
+    setupFiles: ['./src/tests/tests-setup.ts'],
     environment: 'happy-dom',
   },
 });

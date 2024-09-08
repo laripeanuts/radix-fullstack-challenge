@@ -3,11 +3,12 @@ import { createRoot } from 'react-dom/client';
 
 import { QueryProvider } from '@/providers/QueryProvider';
 
-import './styles/global.css';
+import './lib/styles/global.css';
 
 // Import the generated route tree
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { routeTree } from './routeTree.gen';
+import { Toaster } from './components/ui/toaster';
 
 // Create a new router instance
 const router = createRouter({ routeTree });
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </QueryProvider>
   </StrictMode>,
 );

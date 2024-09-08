@@ -1,10 +1,5 @@
+import { UserAuthenticationPayload } from '@/lib/utils/decode-jwt';
 import { StateCreator } from 'zustand';
-
-interface UserAuthenticationPayload {
-  name: string;
-  email: string;
-  id: string;
-}
 
 interface AuthenticationState {
   token: string | null;
@@ -13,9 +8,14 @@ interface AuthenticationState {
 }
 
 interface AuthenticationActions {
-  login: (token: string, user: UserAuthenticationPayload) => void;
-  logout: () => void;
-  clearAuth: () => void;
+  signIn: ({
+    token,
+    user,
+  }: {
+    token: string;
+    user: UserAuthenticationPayload;
+  }) => void;
+  singOut: () => void;
 }
 
 export type AuthenticationSlice = AuthenticationState & AuthenticationActions;
@@ -29,7 +29,6 @@ export const createAuthenticationSlice: StateCreator<
   token: null,
   user: null,
   isAuthenticated: false,
-  login: (token, user) => set({ token, user, isAuthenticated: true }),
-  logout: () => set((state) => ({ isAuthenticated: !!state.token })),
-  clearAuth: () => set({ token: null, user: null, isAuthenticated: false }),
+  signIn: ({ token, user }) => set({ token, user, isAuthenticated: true }),
+  singOut: () => set({ token: null, user: null, isAuthenticated: false }),
 });

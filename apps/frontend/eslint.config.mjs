@@ -16,8 +16,4 @@ export default {
       },
     },
   },
-  rules: {
-    ...eslint.configs.rules,
-    'no-console': 'warn',
-  },
 };
