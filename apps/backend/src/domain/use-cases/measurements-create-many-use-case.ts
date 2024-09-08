@@ -5,6 +5,7 @@ import { Measurement } from '@/domain/entities/measurement-entity';
 import { EquipmentsRepository } from '@/domain/repositories/equipments-repository';
 import { MeasurementsRepository } from '@/domain/repositories/measurements-repository';
 import { ResourceNotFoundError } from '../errors/resource-not-found-error';
+import { SomeEquipmentsNotFoundError } from '../errors/some-equipments-not-found';
 
 export interface MeasurementCreateManyUseCaseRequest {
   equipmentId: string;
@@ -28,6 +29,7 @@ export class MeasurementCreateManyUseCase {
     measurements: MeasurementCreateManyUseCaseRequest[],
   ): Promise<MeasurementCreateManyUseCaseResponse> {
     const equipmentIdsErrors: string[] = [];
+    const measurementsEntities: Measurement[] = [];
 
     for (const measurement of measurements) {
       const equipment = await this.equipmentsRepository.findById(
@@ -49,25 +51,15 @@ export class MeasurementCreateManyUseCase {
         timestamp: measurement.timestamp,
       });
 
-      const measurementExists =
-        await this.measurementsRepository.findByEquipmentIdAndTimestamp(
-          measurement.equipmentId,
-          measurement.timestamp,
-        );
+      measurementsEntities.push(measurementEntity);
+    }
 
-      if (measurementExists) {
-        await this.measurementsRepository.update(measurementEntity);
-      } else {
-        await this.measurementsRepository.create(measurementEntity);
-      }
+    if (measurementsEntities.length) {
+      await this.measurementsRepository.createMany(measurementsEntities);
     }
 
     if (equipmentIdsErrors.length) {
-      return left(
-        new ResourceNotFoundError(
-          `Equipments with ids ${equipmentIdsErrors.join(', ')}`,
-        ),
-      );
+      return left(new SomeEquipmentsNotFoundError(equipmentIdsErrors));
     }
 
     return right(true);

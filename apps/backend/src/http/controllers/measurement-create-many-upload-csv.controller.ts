@@ -16,7 +16,7 @@ import { createReadStream } from 'fs';
 import {
   MeasurementCreateManyUseCase,
   MeasurementCreateManyUseCaseRequest,
-} from '@/domain/use-cases/measurement-create-many-use-case';
+} from '@/domain/use-cases/measurements-create-many-use-case';
 
 @Controller('/measurements/upload/csv')
 export class MeasurementsCreateManyByUploadController {

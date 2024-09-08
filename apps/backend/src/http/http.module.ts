@@ -4,6 +4,7 @@ import { DatabaseModule } from '@/database/database.module';
 import { EquipmentCreateUseCase } from '@/domain/use-cases/equipment-create-use-case';
 import { EquipmentsGetAllUseCase } from '@/domain/use-cases/equipments-get-all-use-case';
 import { MeasurementCreateUseCase } from '@/domain/use-cases/measurement-create-use-case';
+import { MeasurementCreateManyUseCase } from '@/domain/use-cases/measurements-create-many-use-case';
 import { MeasurementsAverageByEquipmentsUseCase } from '@/domain/use-cases/measurements-get-avg-by-equipment-use-case';
 import { UserCreateSessionUseCase } from '@/domain/use-cases/user-create-session-use-case';
 import { UserCreateUseCase } from '@/domain/use-cases/user-create-use-case';
@@ -16,7 +17,6 @@ import { UserCreateSessionController } from '@/http/controllers/user-create-sess
 import { UserCreateController } from '@/http/controllers/user-create.controller';
 import { CryptographyModule } from '@/http/cryptography/cryptography.module';
 import { MulterModule } from '@nestjs/platform-express';
-import { MeasurementCreateManyUseCase } from "@/domain/use-cases/measurement-create-many-use-case";
 
 @Module({
   imports: [
