@@ -22,6 +22,61 @@ export class MeasurementsPrismaRepository implements MeasurementsRepository {
     return MeasurementsPrismaMapper.toDomain(measurementCreated);
   }
 
+  async createMany(measurements: Measurement[]): Promise<boolean> {
+    const data = measurements.map((measurement) =>
+      MeasurementsPrismaMapper.toPrisma(measurement),
+    );
+
+    const measurementsCreated = await this.prisma.measurement.createMany({
+      data,
+    });
+
+    return measurementsCreated.count === measurements.length;
+  }
+
+  async update(measurement: Measurement): Promise<Measurement | null> {
+    const existingMeasurement = await this.prisma.measurement.findUnique({
+      where: {
+        id: measurement.id.toString(),
+      },
+    });
+
+    if (!existingMeasurement) {
+      return null;
+    }
+
+    const measurementUpdated = await this.prisma.measurement.update({
+      where: {
+        id: measurement.id.toString(),
+      },
+      data: {
+        value: measurement.value,
+        timestamp: measurement.timestamp,
+        equipmentId: measurement.equipmentId,
+      },
+    });
+
+    return MeasurementsPrismaMapper.toDomain(measurementUpdated);
+  }
+
+  async findByEquipmentIdAndTimestamp(
+    equipmentId: string,
+    timestamp: Date,
+  ): Promise<Measurement | null> {
+    const measurement = await this.prisma.measurement.findFirst({
+      where: {
+        equipmentId,
+        timestamp,
+      },
+    });
+
+    if (!measurement) {
+      return null;
+    }
+
+    return MeasurementsPrismaMapper.toDomain(measurement);
+  }
+
   async getAvgValueByEquipmentId(
     equipmentId: string,
     { sinceDate }: MeasurementsGetAvgByEquipmentParams,
