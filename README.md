@@ -12,6 +12,7 @@
     - [Dev](#dev)
     - [Production](#production)
   - [Try out!](#try-out)
+  - [Expanding the project](#expanding-the-project)
 
 ## About the project
 
@@ -121,3 +122,11 @@ To access the project, go to [http://localhost:3000](http://localhost:3000). The
 
 - **Backend:**
   - You can try the api by accessing the `client.http` file in the `backend` root folder, and clicking on the `Send Request` button, but you need to have the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension installed in your VSCode.
+
+## Expanding the project
+
+- [ ] Add tests to the frontend
+- [ ] Add pagination to both frontend and backend
+- [ ] Storage the CSV files in a cloud service
+- [ ] Make a better history of each equipment
+- [ ] Publish the application in a cloud service

@@ -1,14 +1,15 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { QueryProvider } from '@/providers/QueryProvider';
+import { QueryProvider } from '@/providers/query-provider';
 
 import './lib/styles/global.css';
 
 // Import the generated route tree
 import { createRouter, RouterProvider } from '@tanstack/react-router';
-import { routeTree } from './routeTree.gen';
 import { Toaster } from './components/ui/toaster';
+import { ThemeProvider } from './providers/theme-provider';
+import { routeTree } from './routeTree.gen';
 
 // Create a new router instance
 const router = createRouter({ routeTree });
@@ -22,9 +23,11 @@ declare module '@tanstack/react-router' {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <QueryProvider>
-      <RouterProvider router={router} />
-      <Toaster />
-    </QueryProvider>
+    <ThemeProvider>
+      <QueryProvider>
+        <RouterProvider router={router} />
+        <Toaster />
+      </QueryProvider>
+    </ThemeProvider>
   </StrictMode>,
 );

@@ -19,7 +19,7 @@ export const UserNotLoggedLayout = () => {
           alt="abstract pattern background"
           width="1920"
           height="1080"
-          className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale relative"
+          className="relative object-cover w-full h-full"
         />
         <img
           src="/logo-white.svg"

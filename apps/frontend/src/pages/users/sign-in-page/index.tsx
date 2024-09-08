@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { InputError } from '@/components/ui/input-error';
 import { Label } from '@/components/ui/label';
 import { useUserSignIn } from '@/http/queries/users';
-import { UserNotLoggedInContainer } from '@/layouts/user-not-logged-layout/container';
+import { UserNotLoggedInContainer } from '@/layouts/user-not-logged-layout/user-not-logged-container';
 import { useStore } from '@/store';
 
 import { toast } from '@/hooks/use-toast';
