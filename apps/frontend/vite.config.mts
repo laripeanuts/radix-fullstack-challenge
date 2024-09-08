@@ -1,3 +1,4 @@
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 import { config } from 'dotenv';
 import path, { resolve } from 'path';
@@ -7,7 +8,7 @@ config({ path: resolve(__dirname, '.env') });
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [TanStackRouterVite(), react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
