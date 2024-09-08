@@ -22,9 +22,9 @@
       "types": ["vitest/globals", "vite/client", "vitest/jsdom"]
     },
     /* Paths */
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
-  },
+  }
 }

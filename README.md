@@ -31,6 +31,8 @@ This repository is organized following the Clean Architecture principles, with t
 
 #### Features
 
+All endpoints includes a validation pipe, tests e2e and error handling. The routes for user to create an account and authenticate are free of authentication, but the other routes are protected by JWT.
+
 - [x] User:
   - POST
 - [x] User/Session:

@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { config } from 'dotenv';
-import { resolve } from 'path';
+import path, { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 config({ path: resolve(__dirname, '.env') });
@@ -8,6 +8,11 @@ config({ path: resolve(__dirname, '.env') });
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   define: {
     'process.env': process.env,
   },

@@ -1,7 +1,11 @@
 {
   "extends": "@repo/typescript-config/react.json",
-  "include": ["src", "**/*.ts", "**/*.tsx"],
+  "include": ["src", "**/*.ts", "**/*.tsx", "vite.config.mts"],
   "compilerOptions": {
-    "types": ["vitest/globals", "vite/client", "vitest/jsdom"]
+    "types": ["vitest/globals", "vite/client", "vitest/jsdom"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
