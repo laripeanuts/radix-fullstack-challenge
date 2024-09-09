@@ -32,7 +32,7 @@ export const TabStats = () => {
           Follow up the stats of our equipments and their measurements.
         </CardDescription>
       </CardHeader>
-      <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <CardContent className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <div className="flex flex-col w-full gap-4">
           <Combobox
             placeholder="Select an equipment"

@@ -12,9 +12,9 @@ import { TabStats } from './tab-stats';
 
 export const DashboardPage = () => {
   return (
-    <main className="grid items-start flex-1 gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+    <main className="grid items-start flex-1 max-w-screen-lg gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
       <Tabs defaultValue="stats">
-        <div className="flex flex-col items-start justify-start gap-2 md:justify-between md:items-center md:gap-4 md:flex-row">
+        <div className="flex flex-col items-start justify-start w-full gap-2 md:justify-between md:items-center md:gap-4 md:flex-row">
           <TabsList>
             <TabsTrigger value="stats">Stats</TabsTrigger>
             <TabsTrigger value="equipments">Equipments</TabsTrigger>

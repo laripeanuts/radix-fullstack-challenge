@@ -21,7 +21,7 @@ export const TabEquipments = () => {
   const { data: equipments, isLoading } = useEquipmentsGetAll();
 
   return (
-    <Card x-chunk="dashboard-06-chunk-0">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Equipments</CardTitle>
         <CardDescription>
