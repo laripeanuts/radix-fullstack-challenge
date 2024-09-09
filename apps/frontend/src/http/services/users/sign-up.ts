@@ -7,7 +7,7 @@ export interface UserSignUpBodyRequest {
 }
 
 export const userSignUp = async (body: UserSignUpBodyRequest) => {
-  const response = await api.post(`/users/session`, body);
+  const response = await api.post(`/users`, body);
 
   return response.data;
 };

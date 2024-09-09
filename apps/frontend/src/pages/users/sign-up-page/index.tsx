@@ -11,7 +11,6 @@ import { useUserSignUp } from '@/http/queries/users';
 import { UserNotLoggedInContainer } from '@/layouts/user-not-logged-layout/user-not-logged-container';
 
 import { toast } from '@/hooks/use-toast';
-import { decodeToken } from '@/lib/utils/decode-jwt';
 import { signUpFormSchema, SignUpFormSchema } from './sign-up-form-schema';
 
 export const SignUpPage = () => {
@@ -29,24 +28,23 @@ export const SignUpPage = () => {
   const onSubmit = (data: SignUpFormSchema) => {
     userSignUpMutation(data, {
       onSuccess: (data) => {
-        const token = data['token'];
-        const userPayload = decodeToken(token);
+        console.log('🚀 ~ onSubmit ~ data:', data);
 
-        if (userPayload) {
+        if (data) {
           toast({
             title: 'Success!',
-            description: 'You are now logged in',
+            description: 'You are now registered, please sign in',
             variant: 'success',
           });
 
-          navigate({ to: '/dashboard' });
+          navigate({ to: '/sign-in' });
         }
       },
       onError: (error) => {
         let description = 'An error occurred';
 
-        if (error.message.includes('401')) {
-          description = 'Invalid email or password';
+        if (error.message.includes('409')) {
+          description = 'Email already registered, please choose another';
         }
 
         toast({
@@ -58,6 +56,7 @@ export const SignUpPage = () => {
     });
   };
 
+  const nameError = errors.name?.message;
   const emailError = errors.email?.message;
   const passwordError = errors.password?.message;
   const isLoading = isSubmitting || isPending;
@@ -68,17 +67,32 @@ export const SignUpPage = () => {
       subtitle="Enter your email below to login to your account"
     >
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
-        <div className="flex items-end justify-between">
-          <Label htmlFor="email">Email</Label>
-          {emailError && <InputError error={emailError} />}
+        <div className="grid gap-2">
+          <div className="flex items-end justify-between">
+            <Label htmlFor="name">Name</Label>
+            {nameError && <InputError error={nameError} />}
+          </div>
+          <Input
+            id="name"
+            type="name"
+            placeholder="Your name"
+            error={nameError}
+            {...register('name')}
+          />
         </div>
-        <Input
-          id="email"
-          type="email"
-          placeholder="me@example.com"
-          error={emailError}
-          {...register('email')}
-        />
+        <div className="grid gap-2">
+          <div className="flex items-end justify-between">
+            <Label htmlFor="email">Email</Label>
+            {emailError && <InputError error={emailError} />}
+          </div>
+          <Input
+            id="email"
+            type="email"
+            placeholder="me@example.com"
+            error={emailError}
+            {...register('email')}
+          />
+        </div>
         <div className="grid gap-2">
           <div className="flex items-end justify-between">
             <Label htmlFor="password">Password</Label>
@@ -95,13 +109,13 @@ export const SignUpPage = () => {
           {isLoading ? (
             <Loader2 className="w-4 h-4 mr-2 animate-spin" />
           ) : (
-            'Sign In'
+            'Sign Up'
           )}
         </Button>
         <div className="text-sm text-center">
-          Don&apos;t have an account?{' '}
-          <Link to="/sign-up" className="underline">
-            Sign up
+          Already have an account?{' '}
+          <Link to="/sign-in" className="underline">
+            Sign in
           </Link>
         </div>
       </form>
