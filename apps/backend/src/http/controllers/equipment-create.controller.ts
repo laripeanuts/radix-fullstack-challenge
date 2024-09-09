@@ -19,6 +19,9 @@ import { EquipmentPresenter } from '@/http/presenters/equipment-presenter';
 const createEquipmentBodySchema = z.object({
   name: z.string(),
   description: z.string().optional(),
+  status: z
+    .enum(['OPERATIONAL', 'MAINTENANCE', 'OUT_OF_SERVICE'])
+    .default('OPERATIONAL'),
 });
 
 type CreateEquipmentBody = z.infer<typeof createEquipmentBodySchema>;
@@ -36,11 +39,12 @@ export class EquipmentCreateController {
     body: CreateEquipmentBody,
   ) {
     const { sub: userId } = user;
-    const { name, description } = body;
+    const { name, description, status } = body;
 
     const result = await this.equipmentCreateUseCase.call({
       name,
       description: description || '',
+      status: status,
       userId: new UniqueEntityID(userId),
     });
 

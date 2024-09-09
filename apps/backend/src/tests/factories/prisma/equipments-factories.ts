@@ -10,6 +10,8 @@ export function makeEquipment(override: Partial<EquipmentProps> = {}) {
   const equipment = Equipment.create({
     name: faker.person.fullName(),
     description: faker.lorem.sentence(),
+    status: 'OPERATIONAL',
+    createdAt: new Date(),
     userId: new UniqueEntityID(faker.string.uuid()),
     id: faker.string.uuid(),
     ...override,

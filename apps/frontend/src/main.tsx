@@ -8,6 +8,7 @@ import './lib/styles/global.css';
 // Import the generated route tree
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 import { Toaster } from './components/ui/toaster';
+import { TooltipProvider } from './components/ui/tooltip';
 import { ThemeProvider } from './providers/theme-provider';
 import { routeTree } from './routeTree.gen';
 
@@ -24,10 +25,12 @@ declare module '@tanstack/react-router' {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
-      <QueryProvider>
-        <RouterProvider router={router} />
-        <Toaster />
-      </QueryProvider>
+      <TooltipProvider>
+        <QueryProvider>
+          <RouterProvider router={router} />
+          <Toaster />
+        </QueryProvider>
+      </TooltipProvider>
     </ThemeProvider>
   </StrictMode>,
 );

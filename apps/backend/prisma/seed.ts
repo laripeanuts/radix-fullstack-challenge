@@ -64,6 +64,8 @@ async function seedEquipments(userId: string) {
           id: equipment.id,
           name: equipment.name,
           description: equipment.description,
+          status: equipment.status,
+          createdAt: new Date(equipment.createdAt),
           userId: userId,
         },
       });

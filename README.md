@@ -55,9 +55,9 @@ Was developed using React with TypeScript using Vite as a bundler.
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
-- [Docker](https://www.docker.com/)
-
-The project was developed using [pnpm](https://pnpm.io/), so it is recommended to use it to run the project. But your preferred package manager can be used as well.
+- [PostgreSQL](https://www.postgresql.org/)
+- [pNPM](https://pnpm.io/)
+- [Docker](https://www.docker.com/) (optional)
 
 ### Setup
 
@@ -71,7 +71,7 @@ pnpm install
 
 3. Setup the database:
 
-- Initialize db in a docker compose container:
+- Initialize db in a docker compose container or run a local instance of PostgreSQL, don't forget to change the `DATABASE_URL` in the `.env` file to your database url. To run the docker compose, run the following command:
 
 ```bash
 docker-compose up -d

@@ -1,9 +1,12 @@
 import { z } from 'zod';
 
-export const signInFormSchema = z.object({
+export const signUpFormSchema = z.object({
+  name: z.string({
+    message: 'Name field is required',
+  }),
   email: z
     .string({
-      message: 'Password field is required',
+      message: 'E-mail field is required',
     })
     .email({ message: 'Invalid e-mail' }),
   password: z
@@ -13,4 +16,4 @@ export const signInFormSchema = z.object({
     .min(6, { message: 'A password must have at least 6 characters' }),
 });
 
-export type SignInFormSchema = z.infer<typeof signInFormSchema>;
+export type SignUpFormSchema = z.infer<typeof signUpFormSchema>;

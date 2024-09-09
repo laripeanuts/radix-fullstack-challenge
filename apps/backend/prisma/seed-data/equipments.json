@@ -2,186 +2,223 @@
   {
     "id": "EQ-12495",
     "name": "Inversores de Frequência",
+    "status": "OPERATIONAL",
     "description": "Dispositivo utilizado para controlar a velocidade de motores elétricos."
   },
   {
     "id": "EQ-12496",
     "name": "Compressores de Ar",
+    "status": "OPERATIONAL",
     "description": "Equipamento para compressão de ar, essencial em processos industriais."
   },
   {
     "id": "EQ-12497",
     "name": "Geradores de Energia",
+    "status": "MAINTENANCE",
     "description": "Máquinas que geram eletricidade para suprir demandas energéticas."
   },
   {
     "id": "EQ-12498",
     "name": "Bombas Centrífugas",
+    "status": "OUT_OF_SERVICE",
     "description": "Usadas para movimentar líquidos em sistemas de tubulação."
   },
   {
     "id": "EQ-12499",
     "name": "Transformadores Elétricos",
+    "status": "OPERATIONAL",
     "description": "Equipamentos que alteram os níveis de tensão da eletricidade."
   },
   {
     "id": "EQ-12500",
     "name": "Caldeiras de Alta Pressão",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para gerar vapor sob alta pressão para processos industriais."
   },
   {
     "id": "EQ-12501",
     "name": "Controladores Lógicos Programáveis",
+    "status": "OPERATIONAL",
     "description": "Sistemas de controle para automação de processos industriais."
   },
   {
     "id": "EQ-12502",
     "name": "Sensores de Temperatura",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para monitorar a temperatura em sistemas e processos."
   },
   {
     "id": "EQ-12503",
     "name": "Chillers",
+    "status": "OUT_OF_SERVICE",
     "description": "Equipamentos para resfriamento de fluidos em processos industriais."
   },
   {
     "id": "EQ-12504",
     "name": "Separadores de Água e Óleo",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para separar água e óleo em sistemas de processos."
   },
   {
     "id": "EQ-12505",
     "name": "Válvulas de Controle",
+    "status": "OPERATIONAL",
     "description": "Equipamentos usados para regular o fluxo de líquidos e gases."
   },
   {
     "id": "EQ-12506",
     "name": "Turbinas a Gás",
+    "status": "MAINTENANCE",
     "description": "Máquinas que convertem energia térmica em energia mecânica."
   },
   {
     "id": "EQ-12507",
     "name": "Unidades de Tratamento de Água",
+    "status": "OUT_OF_SERVICE",
     "description": "Equipamentos para purificação e tratamento de água para consumo e processos."
   },
   {
     "id": "EQ-12508",
     "name": "Mediadores de Fluxo",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para medir o fluxo de líquidos e gases em sistemas."
   },
   {
     "id": "EQ-12509",
     "name": "Sistemas de Ventilação",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para garantir a circulação de ar em ambientes industriais."
   },
   {
     "id": "EQ-12510",
     "name": "Tanques de Armazenamento",
+    "status": "OPERATIONAL",
     "description": "Reservatórios para armazenar líquidos ou gases em grandes quantidades."
   },
   {
     "id": "EQ-12511",
     "name": "Equipamentos de Medição de Pressão",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para medir a pressão de gases e líquidos."
   },
   {
     "id": "EQ-12512",
     "name": "Sistema de Monitoramento de Emissões",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para monitorar as emissões de poluentes em processos industriais."
   },
   {
     "id": "EQ-12513",
     "name": "Sistema de Filtragem de Ar",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para filtrar partículas e contaminantes do ar."
   },
   {
     "id": "EQ-12514",
     "name": "Sistema de Armazenamento de Energia",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para armazenar energia para uso futuro, como baterias e sistemas de armazenamento."
   },
   {
     "id": "EQ-12515",
     "name": "Sistema de Lubrificação Automática",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para fornecer lubrificação contínua a equipamentos e maquinários."
   },
   {
     "id": "EQ-12516",
     "name": "Unidades de Refrigeração Industrial",
+    "status": "MAINTENANCE",
     "description": "Equipamentos para resfriamento e controle de temperatura em processos industriais."
   },
   {
     "id": "EQ-12517",
     "name": "Painéis de Controle",
+    "status": "OPERATIONAL",
     "description": "Painéis usados para monitorar e controlar sistemas e processos industriais."
   },
   {
     "id": "EQ-12518",
     "name": "Filtros de Óleo",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para filtrar impurezas do óleo em sistemas industriais."
   },
   {
     "id": "EQ-12519",
     "name": "Reatores Químicos",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para realizar reações químicas em processos industriais."
   },
   {
     "id": "EQ-12520",
     "name": "Caldeiras de Recuperação",
+    "status": "OPERATIONAL",
     "description": "Dispositivos que recuperam calor de gases de escape para melhorar a eficiência energética."
   },
   {
     "id": "EQ-12521",
     "name": "Sistema de Despoeiramento",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para remover poeira e partículas do ar em processos industriais."
   },
   {
     "id": "EQ-12522",
     "name": "Bombas de Calor",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para transferir calor de um lugar para outro, usados em sistemas de climatização."
   },
   {
     "id": "EQ-12523",
     "name": "Aquecedores Elétricos",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para gerar calor elétrico para processos industriais."
   },
   {
     "id": "EQ-12524",
     "name": "Sistema de Tratamento de Efluentes",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para tratar e purificar efluentes industriais antes do descarte."
   },
   {
     "id": "EQ-12525",
     "name": "Geradores de Emergência",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para fornecer energia de backup em caso de falha na fonte principal."
   },
   {
     "id": "EQ-12526",
     "name": "Sistemas de Refrigeração por Absorção",
+    "status": "OPERATIONAL",
     "description": "Equipamentos que utilizam absorção para resfriar ambientes ou processos."
   },
   {
     "id": "EQ-12527",
     "name": "Compressores de Refrigerante",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para comprimir refrigerantes em sistemas de climatização e refrigeração."
   },
   {
     "id": "EQ-12528",
     "name": "Controladores de Nível",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para monitorar e controlar o nível de líquidos em tanques e reservatórios."
   },
   {
     "id": "EQ-12529",
     "name": "Secadores Industriais",
+    "status": "OPERATIONAL",
     "description": "Equipamentos para remover a umidade de materiais e produtos em processos industriais."
   },
   {
     "id": "EQ-12530",
     "name": "Unidades de Filtragem de Água",
+    "status": "MAINTENANCE",
     "description": "Equipamentos para filtrar impurezas da água em sistemas industriais."
   },
   {
     "id": "EQ-12531",
     "name": "Equipamentos de Medição de Vazão",
+    "status": "OPERATIONAL",
     "description": "Dispositivos para medir a vazão de líquidos e gases em processos industriais."
   }
 ]

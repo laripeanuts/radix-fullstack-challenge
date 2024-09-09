@@ -1,12 +1,16 @@
 import { Entity } from '@/core/entities/entitty';
 import { UniqueEntityID } from '@/core/entities/unique-id-entity';
 
-export interface EquipmentProps {
+export type EquipmentStatus = 'OPERATIONAL' | 'MAINTENANCE' | 'OUT_OF_SERVICE';
+
+export type EquipmentProps = {
   name: string;
   description: string;
   id: string;
+  status: EquipmentStatus;
+  createdAt?: Date;
   userId: UniqueEntityID;
-}
+};
 
 export class Equipment extends Entity<EquipmentProps> {
   get name() {
@@ -19,6 +23,14 @@ export class Equipment extends Entity<EquipmentProps> {
 
   get id() {
     return this.props.id;
+  }
+
+  get status() {
+    return this.props.status;
+  }
+
+  get createdAt() {
+    return this.props.createdAt;
   }
 
   get userId() {

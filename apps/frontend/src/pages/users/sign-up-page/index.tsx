@@ -7,29 +7,27 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { InputError } from '@/components/ui/input-error';
 import { Label } from '@/components/ui/label';
-import { useUserSignIn } from '@/http/queries/users';
+import { useUserSignUp } from '@/http/queries/users';
 import { UserNotLoggedInContainer } from '@/layouts/user-not-logged-layout/user-not-logged-container';
-import { useStore } from '@/store';
 
 import { toast } from '@/hooks/use-toast';
 import { decodeToken } from '@/lib/utils/decode-jwt';
-import { signInFormSchema, SignInFormSchema } from './sign-in-form-schema';
+import { signUpFormSchema, SignUpFormSchema } from './sign-up-form-schema';
 
-export const SignInPage = () => {
-  const signIn = useStore((state) => state.signIn);
+export const SignUpPage = () => {
   const navigate = useNavigate();
-  const { mutate: userSignInMutation, isPending } = useUserSignIn();
+  const { mutate: userSignUpMutation, isPending } = useUserSignUp();
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<SignInFormSchema>({
-    resolver: zodResolver(signInFormSchema),
+  } = useForm<SignUpFormSchema>({
+    resolver: zodResolver(signUpFormSchema),
   });
 
-  const onSubmit = (data: SignInFormSchema) => {
-    userSignInMutation(data, {
+  const onSubmit = (data: SignUpFormSchema) => {
+    userSignUpMutation(data, {
       onSuccess: (data) => {
         const token = data['token'];
         const userPayload = decodeToken(token);
@@ -41,7 +39,6 @@ export const SignInPage = () => {
             variant: 'success',
           });
 
-          signIn({ token, user: userPayload });
           navigate({ to: '/dashboard' });
         }
       },

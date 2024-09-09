@@ -2,7 +2,7 @@ import { Either, left, right } from '@/core/either/either.';
 import { Injectable } from '@nestjs/common';
 
 import { UniqueEntityID } from '@/core/entities/unique-id-entity';
-import { Equipment } from '../entities/equipment-entity';
+import { Equipment, EquipmentStatus } from '../entities/equipment-entity';
 import { UserInvalidError } from '../errors/user-invalid-error';
 import { EquipmentsRepository } from '../repositories/equipments-repository';
 import { UsersRepository } from '../repositories/users-repository';
@@ -10,6 +10,7 @@ import { UsersRepository } from '../repositories/users-repository';
 interface EquipmentCreateUseCaseRequest {
   name: string;
   description: string;
+  status: EquipmentStatus;
   userId: UniqueEntityID;
 }
 
@@ -30,6 +31,7 @@ export class EquipmentCreateUseCase {
   async call({
     name,
     description,
+    status,
     userId,
   }: EquipmentCreateUseCaseRequest): Promise<EquipmentCreateUseCaseResponse> {
     const validUser = await this.usersRepository.findById(userId);
@@ -44,6 +46,7 @@ export class EquipmentCreateUseCase {
       name,
       description,
       id,
+      status,
       userId,
     });
 
