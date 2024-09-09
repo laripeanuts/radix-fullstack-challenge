@@ -29,7 +29,7 @@ export const TabEquipments = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Table>
+        <Table className="overflow-auto lg:overflow-hidden">
           <TableHeader>
             <TableRow>
               <TableHead>Identifier</TableHead>

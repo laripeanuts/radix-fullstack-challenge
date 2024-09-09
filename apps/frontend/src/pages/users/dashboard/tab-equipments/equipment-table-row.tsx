@@ -11,7 +11,7 @@ export const EquipmentTableRow = ({
   equipment: { name, status, id, description, createdAt },
 }: EquipmentTableRowProps) => (
   <TableRow>
-    <TableCell className="hidden sm:table-cell">{id}</TableCell>
+    <TableCell>{id}</TableCell>
     <TableCell className="flex flex-col">
       <span className="font-semibold">{name}</span>
       <span className="text-sm text-gray-500">{description}</span>

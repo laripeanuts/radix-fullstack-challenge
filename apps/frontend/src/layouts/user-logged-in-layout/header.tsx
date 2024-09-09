@@ -27,7 +27,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between gap-4 py-2 mb-4 border-b h-14 bg-background sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+    <header className="sticky top-0 z-30 flex items-center justify-between gap-4 px-4 py-2 mb-4 border-b bg-background sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
       <div className="flex items-center gap-4">
         <button
           className="cursor-pointer hover:opacity-80"
