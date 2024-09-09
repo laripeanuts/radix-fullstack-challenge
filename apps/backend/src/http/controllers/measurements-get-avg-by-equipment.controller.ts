@@ -9,7 +9,7 @@ import {
 import { ResourceNotFoundError } from '@/domain/errors/resource-not-found-error';
 import { MeasurementsAverageByEquipmentsUseCase } from '@/domain/use-cases/measurements-get-avg-by-equipment-use-case';
 
-@Controller('/equipments/:equipmentId/average')
+@Controller('/measurements/:equipmentId/average')
 export class MeasurementsAverageByEquipmentsController {
   constructor(
     private measurementsAverageByEquipmentsUseCase: MeasurementsAverageByEquipmentsUseCase,

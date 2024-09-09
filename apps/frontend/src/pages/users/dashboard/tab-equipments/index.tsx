@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
 import {
   Table,
   TableBody,
@@ -41,13 +42,13 @@ export const TabEquipments = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {isLoading ? (
-              <span>Loading</span>
-            ) : (
-              equipments?.map((equipment) => (
-                <EquipmentTableRow key={equipment.id} equipment={equipment} />
-              ))
-            )}
+            {isLoading
+              ? Array.from({ length: 5 }).map((_, index) => (
+                  <Skeleton key={index} className="w-full h-24 rounded-md" />
+                ))
+              : equipments?.map((equipment) => (
+                  <EquipmentTableRow key={equipment.id} equipment={equipment} />
+                ))}
             {!equipments?.length && !isLoading && (
               <TableRow>No equipments found</TableRow>
             )}

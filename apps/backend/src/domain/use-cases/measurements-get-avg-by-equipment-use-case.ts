@@ -55,7 +55,7 @@ export class MeasurementsAverageByEquipmentsUseCase {
           equipmentId,
           { sinceDate },
         );
-      averageByInterval[interval] = avgValue;
+      averageByInterval[interval] = Number(avgValue.toFixed(2));
     }
 
     return right({

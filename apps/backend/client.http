@@ -56,7 +56,7 @@ Content-Type: application/json
 ###
 
 # @name getMeasurementsByEquipmentId
-GET {{baseUrl}}/measurements/{{equipmentId}}/average
+GET {{baseUrl}}/measurements/EQ-12496/average
 Authorization: Bearer {{token}}
 
 ###

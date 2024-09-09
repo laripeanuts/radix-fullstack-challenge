@@ -12,7 +12,6 @@ import { UserFactory } from '@/tests/factories/prisma/users-factories';
 
 describe('MeasurementsAverageByEquipmentsController (e2e)', () => {
   let app: INestApplication;
-  let prisma: PrismaService;
 
   let equipmentsFactory: EquipmentsFactory;
   let measurementsFactory: MeasurementsFactory;
@@ -83,9 +82,9 @@ describe('MeasurementsAverageByEquipmentsController (e2e)', () => {
     await app.close();
   });
 
-  it('/equipments/:equipmentId/average (GET) should get average measurements by equipment id', async () => {
+  it('/measurements/:equipmentId/average (GET) should get average measurements by equipment id', async () => {
     const response = await request(app.getHttpServer())
-      .get(`/equipments/${equipmentId}/average`)
+      .get(`/measurements/${equipmentId}/average`)
       .set('Authorization', `Bearer ${token}`)
       .expect(200);
 
@@ -96,9 +95,9 @@ describe('MeasurementsAverageByEquipmentsController (e2e)', () => {
     expect(response.body.averageByInterval['1m']).toBe(25);
   });
 
-  it('/equipments/:equipmentId/average (GET) should not get average unauthorized', async () => {
+  it('/measurements/:equipmentId/average (GET) should not get average unauthorized', async () => {
     const response = await request(app.getHttpServer())
-      .get(`/equipments/${equipmentId}/average`)
+      .get(`/measurements/${equipmentId}/average`)
       .expect(401);
 
     expect(response.body.message).toBe('Unauthorized');

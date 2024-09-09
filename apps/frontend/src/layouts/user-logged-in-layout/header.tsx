@@ -48,15 +48,16 @@ export const Header = () => {
           )}
         </button>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon">
+            <Button variant="outline" className="rounded-full" size="icon">
               <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               <span className="sr-only">Toggle theme</span>
             </Button>
           </DropdownMenuTrigger>
+          <div className="w-1 h-10 bg-slate-200"></div>
           <DropdownMenuContent align="start">
             <DropdownMenuItem onClick={() => setTheme('light')}>
               Light
@@ -81,7 +82,9 @@ export const Header = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>{`Welcome, ${user?.name}`}</DropdownMenuLabel>
-            <DropdownMenuItem onClick={handleLogout}>Sign out</DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer" onClick={handleLogout}>
+              Sign out
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

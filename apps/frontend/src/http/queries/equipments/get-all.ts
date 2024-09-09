@@ -8,6 +8,6 @@ export const useEquipmentsGetAll = (
 ) =>
   useQuery<Equipment[]>({
     ...options,
-    queryKey: ['users', 'sign-up'],
+    queryKey: ['equipments', 'get-all'],
     queryFn: equipmentsGetAll,
   });

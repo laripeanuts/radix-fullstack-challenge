@@ -8,7 +8,7 @@ interface EquipmentTableRowProps {
 }
 
 export const EquipmentTableRow = ({
-  equipment: { name, status, id, description, userId, createdAt },
+  equipment: { name, status, id, description, createdAt },
 }: EquipmentTableRowProps) => (
   <TableRow>
     <TableCell className="hidden sm:table-cell">{id}</TableCell>
