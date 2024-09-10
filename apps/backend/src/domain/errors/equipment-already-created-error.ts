@@ -4,7 +4,7 @@ export class EquipmentAlreadyCreatedError
   extends Error
   implements UseCaseError
 {
-  constructor(identifier: string) {
-    super(`Equipment with id "${identifier}" already created`);
+  constructor() {
+    super('Equipment already created with this id');
   }
 }

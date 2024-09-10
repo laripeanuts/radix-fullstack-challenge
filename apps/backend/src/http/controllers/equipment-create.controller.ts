@@ -17,6 +17,7 @@ import { ZodValidationPipe } from '@/http/pipes/zod-validation-pipe';
 import { EquipmentPresenter } from '@/http/presenters/equipment-presenter';
 
 const createEquipmentBodySchema = z.object({
+  id: z.string().optional(),
   name: z.string(),
   description: z.string().optional(),
   status: z
@@ -39,9 +40,10 @@ export class EquipmentCreateController {
     body: CreateEquipmentBody,
   ) {
     const { sub: userId } = user;
-    const { name, description, status } = body;
+    const { id, name, description, status } = body;
 
     const result = await this.equipmentCreateUseCase.call({
+      id,
       name,
       description: description || '',
       status: status,

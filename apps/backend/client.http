@@ -32,7 +32,9 @@ Authorization: Bearer {{token}}
 
 {
   "name": "Excaator Sensor",
-  "description": "Heavy duty excavator"
+  "description": "Heavy duty excavator",
+  "status": "OPERATIONAL",
+  "id": "EQ-12496"
 }
 
 ###

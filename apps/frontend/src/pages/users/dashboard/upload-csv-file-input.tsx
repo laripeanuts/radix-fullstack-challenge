@@ -62,13 +62,20 @@ export const UploadCsvFileInput = () => {
         />
       </div>
       <Button
-        className="flex items-center justify-center w-10 gap-1 p-0 mb-1 rounded-full h-9"
+        className="flex items-center justify-center w-32 h-10 gap-1 p-0 rounded-md"
+        variant="link"
         type="submit"
       >
         {isPending ? (
-          <Loader2 className="w-4 h-4 animate-spin" />
+          <div className="flex items-center justify-center gap-2">
+            <Loader2 className="w-4 h-4 animate-spin" />
+            <span>Uploading</span>
+          </div>
         ) : (
-          <FileUp className="w-5 h-5" />
+          <div className="flex items-center justify-center gap-2">
+            <FileUp className="w-5 h-5" />
+            <span>Upload</span>
+          </div>
         )}
       </Button>
     </form>

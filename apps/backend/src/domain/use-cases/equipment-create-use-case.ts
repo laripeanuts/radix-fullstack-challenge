@@ -3,11 +3,13 @@ import { Injectable } from '@nestjs/common';
 
 import { UniqueEntityID } from '@/core/entities/unique-id-entity';
 import { Equipment, EquipmentStatus } from '../entities/equipment-entity';
+import { EquipmentAlreadyCreatedError } from '../errors/equipment-already-created-error';
 import { UserInvalidError } from '../errors/user-invalid-error';
 import { EquipmentsRepository } from '../repositories/equipments-repository';
 import { UsersRepository } from '../repositories/users-repository';
 
 interface EquipmentCreateUseCaseRequest {
+  id?: string;
   name: string;
   description: string;
   status: EquipmentStatus;
@@ -15,7 +17,7 @@ interface EquipmentCreateUseCaseRequest {
 }
 
 type EquipmentCreateUseCaseResponse = Either<
-  UserInvalidError,
+  UserInvalidError | EquipmentAlreadyCreatedError,
   {
     equipment: Equipment;
   }
@@ -29,23 +31,32 @@ export class EquipmentCreateUseCase {
   ) {}
 
   async call({
+    id,
     name,
     description,
     status,
     userId,
   }: EquipmentCreateUseCaseRequest): Promise<EquipmentCreateUseCaseResponse> {
+    if (id) {
+      const equipmentExists = await this.equipmentsRepository.findById(id);
+
+      if (equipmentExists) {
+        return left(new EquipmentAlreadyCreatedError());
+      }
+    }
+
     const validUser = await this.usersRepository.findById(userId);
 
     if (!validUser) {
       return left(new UserInvalidError());
     }
 
-    const id = this.generateEquipmentId();
+    const identifier = id ? id : this.generateEquipmentId();
 
     const equipment = Equipment.create({
+      id: identifier,
       name,
       description,
-      id,
       status,
       userId,
     });

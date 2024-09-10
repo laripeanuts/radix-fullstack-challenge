@@ -77,6 +77,7 @@ Was developed using React with TypeScript using Vite as a bundler.
 - [x] User logged in can see all the equipment
 - [x] User logged in can upload a CSV file to register a new equipment
 - [x] User logged in can see the stats available
+- [x] User logged in can create a new equipment
 
 #### Features
 
@@ -179,3 +180,4 @@ To access the project, go to [http://localhost:3000](http://localhost:3000). The
 - [ ] Make a better history of each equipment
 - [ ] User can register a new equipment on the frontend
 - [ ] Publish the application in a cloud service
+- [ ] Take advantage of the monorepo to share code between the frontend and the backend

@@ -15,18 +15,22 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { useEquipmentsGetAll } from '@/http/queries/equipments';
+import { CreateEquipmentDialog } from './create-equipment-dialog';
 import { EquipmentTableRow } from './equipment-table-row';
 
 export const TabEquipments = () => {
-  const { data: equipments, isLoading } = useEquipmentsGetAll();
+  const { data: equipments, isLoading, refetch } = useEquipmentsGetAll();
 
   return (
     <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Equipments</CardTitle>
-        <CardDescription>
-          See all the equipments that our system has functionality to track
-        </CardDescription>
+      <CardHeader className="flex flex-row justify-between">
+        <div className="flex flex-col gap-2">
+          <CardTitle>Equipments</CardTitle>
+          <CardDescription>
+            See all the equipments that our system has functionality to track
+          </CardDescription>
+        </div>
+        <CreateEquipmentDialog refetch={refetch} />
       </CardHeader>
       <CardContent>
         <Table className="overflow-auto lg:overflow-hidden">

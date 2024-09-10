@@ -9,8 +9,8 @@ import { InputError } from '@/components/ui/input-error';
 import { Label } from '@/components/ui/label';
 import { useUserSignUp } from '@/http/queries/users';
 import { UserNotLoggedInContainer } from '@/layouts/user-not-logged-layout/user-not-logged-container';
-
 import { toast } from '@/hooks/use-toast';
+
 import { signUpFormSchema, SignUpFormSchema } from './sign-up-form-schema';
 
 export const SignUpPage = () => {
@@ -28,8 +28,6 @@ export const SignUpPage = () => {
   const onSubmit = (data: SignUpFormSchema) => {
     userSignUpMutation(data, {
       onSuccess: (data) => {
-        console.log('🚀 ~ onSubmit ~ data:', data);
-
         if (data) {
           toast({
             title: 'Success!',
